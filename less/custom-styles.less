@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300|Fira+Sans:400,600,700&subset=cyrillic');
+
+/***********************************************************************************************************************
+*********** variables
+***********************************************************************************************************************/
+
+
+
+/***********************************************************************************************************************
+*********** mixes
+***********************************************************************************************************************/
+
+.smooth(@speed) {
+  -webkit-transition: @speed;
+  -moz-transition: @speed;
+  -ms-transition: @speed;
+  -o-transition: @speed;
+  transition: @speed;
+}
+
+.clearfix() {
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** general styles
+***********************************************************************************************************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Sans Regular', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.wrapper {
+  display: block;
+  width: 100%;
+  min-width: 320px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+
+  @media(max-width: 768px) {
+    padding-bottom: 0;
+  }
+
+}
+
+.wrapper-inner {
+  display: block;
+  width: 100%;
+  max-width: 1230px;
+  margin: 0 auto;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  @media(max-width: 1260px) {
+    padding: 0 15px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 0 10px;
+  }
+
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-wrap {
+
+}
+
+a {
+  .smooth(.4s);
+
+  color: inherit;
+  text-decoration: none;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+}
+
+button {
+  .smooth(.4s);
+
+  cursor: pointer;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+}
+
+p {
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+fieldset {
+  display: block;
+  border: none;
+}
+
+
+
+input::-webkit-input-placeholder {color: #000;font-size: 14px;}
+input::-moz-placeholder {color: #000;font-size: 14px;}
+input:-moz-placeholder {color: #000;font-size: 14px;}
+input:-ms-input-placeholder {color: #000;font-size: 14px;}
+
+input:focus::-webkit-input-placeholder {color: transparent;}
+input:focus::-moz-placeholder {color: transparent;}
+input:focus:-moz-placeholder {color: transparent;}
+input:focus:-ms-input-placeholder {color: transparent;}
+
+textarea::-webkit-input-placeholder {color: #000;font-size: 14px;}
+textarea::-moz-placeholder {color: #000;font-size: 14px;}
+textarea:-moz-placeholder {color: #000;font-size: 14px;}
+textarea:-ms-input-placeholder {color: #000;font-size: 14px;}
+
+textarea:focus::-webkit-input-placeholder {color: transparent;}
+textarea:focus::-moz-placeholder {color: transparent;}
+textarea:focus:-moz-placeholder {color: transparent;}
+textarea:focus:-ms-input-placeholder {color: transparent;}
+
+.main-page {
+
+  h1 {
+    font-weight: 600;
+    font-size: 57px;
+    color: #fff;
+  }
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+/***********************************************************************************************************************
+*********** header
+***********************************************************************************************************************/
+
+
+
+/***********************************************************************************************************************
+*********** footer
+***********************************************************************************************************************/
+
+
+
+/***********************************************************************************************************************
+***********
+***********************************************************************************************************************/
