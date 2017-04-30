@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300|Fira+Sans:400,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300|Fira+Sans:300,400,600,700&subset=cyrillic');
 
 /***********************************************************************************************************************
-*********** variables
+*********** flipclock
 ***********************************************************************************************************************/
 
-
+@import url(flipclock);
 
 /***********************************************************************************************************************
 *********** mixes
@@ -36,8 +36,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Fira Sans Regular', sans-serif;
-  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
   font-size: 14px;
   line-height: 1.2;
 }
@@ -49,6 +49,8 @@
   overflow: hidden;
   position: relative;
   opacity: 0;
+  background: #000;
+  padding: 137px 0 91px;
 
   @media(max-width: 768px) {
     padding-bottom: 0;
@@ -57,17 +59,12 @@
 }
 
 .wrapper-inner {
+  .clearfix();
   display: block;
   width: 100%;
   max-width: 1230px;
   margin: 0 auto;
   position: relative;
-
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
 
   @media(max-width: 1260px) {
     padding: 0 15px;
@@ -112,8 +109,33 @@ button {
 
 }
 
+.button-red,
+.button-black {
+  display: block;
+  width: 176px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+}
+
+.button-red {
+  background: transparent url(../source/images/button-red.png) no-repeat 0 0;
+}
+
+.button-black {
+  background: transparent url(../source/images/button-black.png) no-repeat 0 0;
+}
+
+.button-red:hover,
+.button-black:hover {
+  opacity: .7;
+}
+
 p {
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: 14px;
 }
 
@@ -144,6 +166,12 @@ textarea:focus::-moz-placeholder {color: transparent;}
 textarea:focus:-moz-placeholder {color: transparent;}
 textarea:focus:-ms-input-placeholder {color: transparent;}
 
+main {
+  display: block;
+  padding: 50px 0;
+  background: #000 url(../source/images/background-main-top.jpg) no-repeat center top;
+}
+
 .main-page {
 
   h1 {
@@ -154,25 +182,385 @@ textarea:focus:-ms-input-placeholder {color: transparent;}
 
 }
 
-h2 {
-
-}
-
-h3 {
-
-}
-
 /***********************************************************************************************************************
 *********** header
 ***********************************************************************************************************************/
 
+header[role='banner'] {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+  .smooth(.6s);
 
+  .wrapper-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 0 0 0;
+
+    &:after {
+      display: none;
+    }
+
+  }
+
+  .logo-header {
+    display: block;
+    width: 231px;
+  }
+
+}
+
+.phone-block {
+
+  a {
+    font-size: 25px;
+
+    span {
+      font-size: inherit;
+      color: #d53b3b;
+    }
+
+  }
+
+  > span {
+    display: block;
+    color: #334247;
+    margin: 5px 0 0 0;
+  }
+
+}
+
+nav ul {
+  font-size: 0;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: block;
+      padding: 20px 20px 60px;
+      line-height: 1;
+      font-weight: 700;
+      font-size: 17px;
+      background: transparent;
+
+      &.active {
+        cursor: not-allowed;
+      }
+
+      &.active,
+      &:hover {
+        background: #f7f7f7;
+      }
+
+    }
+
+  }
+
+}
 
 /***********************************************************************************************************************
 *********** footer
 ***********************************************************************************************************************/
 
+footer[role='contentinfo'] {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20px 0;
 
+  .wrapper-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:after {
+      display: none;
+    }
+
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background: url(../source/images/background-footer.png) repeat-x 0 0;
+    position: absolute;
+    left: 0;
+    top: -10px;
+  }
+
+  .logo-footer {
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      width: 41px;
+      height: 36px;
+      overflow: hidden;
+      margin: 0 10px 0 0;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+
+    }
+
+    span {
+      line-height: 1;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** counter-block
+***********************************************************************************************************************/
+
+.counter-block {
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+
+  .countdown {
+    display: inline-block;
+    text-align: center;
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** top-block
+***********************************************************************************************************************/
+
+.top-block {
+  text-align: center;
+
+  h1 span {
+    display: block;
+    font-size: 20px;
+    margin: 25px 0 30px 0;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .button-red,
+  .button-black {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** prize-block
+***********************************************************************************************************************/
+
+.prize-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px 0 50px 0;
+
+  .prize-money {
+    height: 362px;
+    position: relative;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    span:first-of-type {
+      display: block;
+      background: #000;
+      position: absolute;
+      right: 0;
+      bottom: 75px;
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+      text-transform: uppercase;
+      padding: 10px 25px 8px;
+    }
+
+    span:last-of-type {
+      display: block;
+      width: 100%;
+      height: 75px;
+      background: url(../source/images/background-price.jpg) no-repeat center;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      font-size: 47px;
+      line-height: 75px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+  }
+
+  .prize-gift {
+    height: 362px;
+    position: relative;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 280px;
+      height: 120px;
+      background: #495563;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+      padding: 0 35px;
+      color: #fff;
+
+      span:first-of-type {
+        color: inherit;
+        font-size: 15px;
+        margin: 0 0 5px;
+        line-height: 1.4;
+      }
+
+      span:last-of-type {
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        color: inherit;
+        font-weight: 600;
+      }
+
+    }
+
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** advantages
+***********************************************************************************************************************/
+
+.advantages {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  text-align: center;
+
+  li {
+    display: block;
+    width: 364px;
+    height: 406px;
+    background: url(../source/images/scroll.png) no-repeat;
+    padding: 160px 46px 75px;
+
+    .tagline {
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 85px;
+        height: 80px;
+        position: absolute;
+        top: -73px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: url(../source/images/sprite.png) no-repeat 0 0;
+      }
+
+      span {
+        display: inline-block;
+        padding: 8px 20px 10px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1;
+        margin: 0 10px;
+        position: relative;
+        z-index: 1;
+
+        &:first-of-type {
+          background: #d63b3b;
+        }
+
+        &:last-of-type {
+          background: #000;
+        }
+
+      }
+
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #fff;
+      margin: 15px 0 0 0;
+    }
+
+    &:nth-child(2) .tagline:before {
+      background-position: -85px 0;
+    }
+
+    &:nth-child(3) .tagline:before {
+      background-position: -170px 0;
+    }
+
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** promo-block
+***********************************************************************************************************************/
+
+.promo-block {
+  padding: 40px 0 0;
+
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 27px;
+    color: #db3232;
+    margin: 0 0 20px;
+  }
+
+  p {
+    color: #fff;
+    line-height: 2;
+    font-size: 15px;
+
+    span {
+      font-weight: 700;
+    }
+
+  }
+
+}
 
 /***********************************************************************************************************************
 ***********

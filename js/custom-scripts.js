@@ -8,6 +8,24 @@ $(window).ready(function() {
         $('.wrapper').animate({opacity: 1}, 500);
     }, 500);
 
+    $(window).scroll(function() {
+
+        if($(window).width() > 1230) {
+
+            if($(window).scrollTop() > 50) {
+
+                $('header[role="banner"]').addClass('narrow');
+
+            } else {
+
+                $('header[role="banner"]').removeClass('narrow');
+
+            }
+
+        }
+
+    });
+
 
 
     /*******************************************************************************************************************
@@ -18,9 +36,14 @@ $(window).ready(function() {
 
 
     /*******************************************************************************************************************
-     *********** sliders
+     *********** countdown
      ******************************************************************************************************************/
 
+    var finalDate = '04/05/2017';
 
+    var clock = $('.countdown').FlipClock({
+        language: 'ru',
+        countdown: true
+    });
 
 });
