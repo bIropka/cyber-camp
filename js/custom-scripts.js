@@ -4,13 +4,9 @@ $(window).ready(function() {
      *********** init
      ******************************************************************************************************************/
 
-    setTimeout(function () {
-        $('.wrapper').animate({opacity: 1}, 500);
-    }, 500);
-
     $(window).scroll(function() {
 
-        if($(window).width() > 1230) {
+        if($(window).width() > 1260) {
 
             if($(window).scrollTop() > 50) {
 
@@ -26,24 +22,76 @@ $(window).ready(function() {
 
     });
 
+    if($(window).width() < 1260) {
+        $('header[role="banner"]').removeClass('narrow');
+        $('nav').appendTo('.mobile-nav');
+    } else {
+        $('nav').insertBefore('.to-buy');
+        if($(window).scrollTop() > 50) {
+            $('header[role="banner"]').addClass('narrow');
+        }
 
+    }
+
+    if($(window).width() < 768) {
+        $('header[role="banner"] .phone-block').prependTo('.mobile-nav');
+    } else {
+        $('.mobile-nav .phone-block').insertAfter('.logo-header');
+    }
+
+    $(window).resize(function() {
+
+        if($(window).width() < 1260) {
+            $('header[role="banner"]').removeClass('narrow');
+            $('nav').appendTo('.mobile-nav');
+        } else {
+            $('nav').insertBefore('.to-buy');
+            if($(window).scrollTop() > 50) {
+                $('header[role="banner"]').addClass('narrow');
+            }
+
+        }
+
+        if($(window).width() < 768) {
+            $('header[role="banner"] .phone-block').prependTo('.mobile-nav');
+        } else {
+            $('.mobile-nav .phone-block').insertAfter('.logo-header');
+        }
+
+    });
 
     /*******************************************************************************************************************
      *********** clicks
      ******************************************************************************************************************/
 
+    $('.burger').click(function() {
 
+        $(this).toggleClass('active');
+        $('.mobile-nav').toggleClass('active');
+
+    });
 
 
     /*******************************************************************************************************************
      *********** countdown
      ******************************************************************************************************************/
 
-    var finalDate = '04/05/2017';
+    var clock;
+    var diff = (24 * 60 *60 * 2);// период для счетчика, в миллисекундах, установлено двое суток
 
-    var clock = $('.countdown').FlipClock({
+    // Instantiate a coutdown FlipClock
+    clock = $('.countdown').FlipClock(diff, {
         language: 'ru',
-        countdown: true
+        clockFace: 'DailyCounter',
+        clockFaceOptions: {
+            countdown: true
+        }
+    });
+    clock.setCountdown(true);
+    clock.face.on('stop', function() {
+        // add 24 hours worth of seconds to the clock face
+        clock.setFaceValue(24 * 60 * 60);
+        clock.start();
     });
 
 });
