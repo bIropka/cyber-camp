@@ -467,6 +467,29 @@
   font-size: 14px;
   line-height: 1.2;
 }
+.pre-loader {
+  display: block;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10000;
+}
+.pre-loader img {
+  display: none;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
 .wrapper {
   display: block;
   width: 100%;
@@ -981,6 +1004,9 @@ footer[role='contentinfo'] .logo-footer span {
   color: #95bdcc;
   text-transform: uppercase;
 }
+.counter-block .flip-clock-divider.days {
+  width: 0;
+}
 .counter-block .flip-clock-divider.days .flip-clock-label {
   right: -55px;
 }
@@ -1293,6 +1319,11 @@ footer[role='contentinfo'] .logo-footer span {
   .advantages li:nth-child(3) .tagline:before {
     background-position: -130px 0;
     background-size: cover;
+  }
+}
+@media (max-width: 480px) {
+  .advantages li {
+    margin: 20px 0;
   }
 }
 /***********************************************************************************************************************

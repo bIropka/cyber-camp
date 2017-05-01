@@ -4,6 +4,60 @@ $(window).ready(function() {
      *********** init
      ******************************************************************************************************************/
 
+    /* the pre-loader */
+
+    var pre = $('.pre-loader');
+
+    $('.pre-loader img').fadeIn(200);
+
+    if($(window).width() > $(window).height()) {
+
+        pre.css({
+            'width' : $(window).width(),
+            'height' : $(window).width(),
+            'top' : $(window).height() / 2 - $(window).width() / 2,
+            'bottom' : 'auto'
+        });
+
+    } else {
+
+        pre.css({
+            'width' : $(window).height(),
+            'height' : $(window).height(),
+            'left' : $(window).width() / 2 - $(window).height() / 2,
+            'right' : 'auto'
+        });
+
+    }
+
+    setTimeout(function(){
+
+        $('.pre-loader img').fadeOut(0);
+
+        pre.css('border-radius', '50%');
+
+        if($(window).width() > $(window).height()) {
+
+            pre.animate({
+                top: $(window).height() / 2,
+                width: 0,
+                height: 0
+            }, 400);
+
+        } else {
+
+            pre.animate({
+                left: $(window).width() / 2,
+                width: 0,
+                height: 0
+            }, 400);
+
+        }
+
+    }, 3000);
+
+    /* the end of the pre-loader */
+
     $(window).scroll(function() {
 
         if($(window).width() > 1260) {
@@ -72,8 +126,46 @@ $(window).ready(function() {
 
     });
 
-    $('nav ul li a.active').click(function() {
+    $('nav ul li a').click(function() {
+
+        var currentLink = $(this).attr('href');
+
+        if (!$(this).hasClass('active')) {
+
+            if($(window).width() > $(window).height()) {
+
+                pre.animate({
+                    width : $(window).width(),
+                    height : $(window).width(),
+                    top : $(window).height() / 2 - $(window).width() / 2
+                }, 400);
+
+                setTimeout(function() {
+                    pre.css('border-radius', 0);
+                }, 400);
+
+            } else {
+
+                pre.animate({
+                    width : $(window).height(),
+                    height : $(window).height(),
+                    left : $(window).width() / 2 - $(window).height() / 2
+                }, 400);
+
+                setTimeout(function() {
+                    pre.css('border-radius', 0);
+                }, 400);
+
+            }
+
+            setTimeout(function() {
+                location.href = currentLink;
+            }, 500);
+
+        }
+
         return false;
+
     });
 
     $('.music-control').click(function() {

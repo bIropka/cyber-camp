@@ -42,6 +42,32 @@
   line-height: 1.2;
 }
 
+.pre-loader {
+  display: block;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10000;
+
+  img {
+    display: none;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+}
+
 .wrapper {
   display: block;
   width: 100%;
@@ -587,6 +613,10 @@ footer[role='contentinfo'] {
     text-transform: uppercase;
   }
 
+  .flip-clock-divider.days {
+    width: 0;
+  }
+
   .flip-clock-divider.days .flip-clock-label {
     right: -55px;
   }
@@ -969,6 +999,14 @@ footer[role='contentinfo'] {
         background-size: cover;
       }
 
+    }
+
+  }
+
+  @media(max-width: 480px) {
+
+    li {
+      margin: 20px 0;
     }
 
   }
