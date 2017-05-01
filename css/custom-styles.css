@@ -572,9 +572,15 @@ button:active {
   background: transparent url(../source/images/button-black.png) no-repeat 0 0;
   background-size: cover;
 }
-.button-red:hover,
+.button-red:hover {
+  background: transparent url(../source/images/button-black.png) no-repeat 0 0;
+  background-size: cover;
+  color: #d43b3b;
+}
 .button-black:hover {
-  opacity: .7;
+  background: transparent url(../source/images/button-white.png) no-repeat 0 0;
+  background-size: cover;
+  color: #000;
 }
 p {
   line-height: 1.5;
@@ -642,7 +648,7 @@ textarea:focus:-ms-input-placeholder {
 }
 main {
   display: block;
-  min-height: calc(100vh - 238px);
+  min-height: calc(100vh - 2305px);
   padding: 50px 0;
   background: url(../source/images/background-main-bottom.png) no-repeat center bottom, #000 url(../source/images/background-main-top.jpg) no-repeat center top;
 }
@@ -735,7 +741,7 @@ nav ul li a {
   background: transparent;
 }
 nav ul li a.active {
-  cursor: not-allowed;
+  cursor: default;
 }
 nav ul li a.active,
 nav ul li a:hover {
@@ -1206,6 +1212,10 @@ footer[role='contentinfo'] .logo-footer span {
   background-size: cover;
   padding: 160px 46px 75px;
 }
+.advantages li:hover {
+  background: url(../source/images/scroll-hover.png) no-repeat;
+  background-size: cover;
+}
 .advantages li .tagline {
   position: relative;
 }
@@ -1360,4 +1370,55 @@ footer[role='contentinfo'] .logo-footer span {
   .faq-page .faq-list {
     padding: 0 25px;
   }
+}
+/***********************************************************************************************************************
+*********** online-manager
+***********************************************************************************************************************/
+.online-manager {
+  position: fixed;
+  bottom: 160px;
+  right: 60px;
+  z-index: 1000;
+  font-size: 0;
+}
+@media (max-width: 768px) {
+  .online-manager {
+    display: none;
+  }
+}
+.online-manager a {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 25px;
+  background: #d63b3b;
+  height: 52px;
+  line-height: 52px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+}
+.online-manager a img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: auto;
+  height: auto;
+}
+.online-manager a:hover {
+  opacity: .7;
+}
+.online-manager button {
+  display: inline-block;
+  vertical-align: top;
+  border: none;
+  width: 55px;
+  height: 52px;
+  background: #495563 url(../source/images/music-control.png) no-repeat left top;
+}
+.online-manager button:hover {
+  opacity: .7;
+}
+.online-manager button.paused {
+  background: #fff url(../source/images/music-control.png) no-repeat right top;
 }

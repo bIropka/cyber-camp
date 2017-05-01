@@ -35,6 +35,7 @@ $(window).ready(function() {
 
     if($(window).width() < 768) {
         $('header[role="banner"] .phone-block').prependTo('.mobile-nav');
+        $('#music').remove();
     } else {
         $('.mobile-nav .phone-block').insertAfter('.logo-header');
     }
@@ -68,6 +69,22 @@ $(window).ready(function() {
 
         $(this).toggleClass('active');
         $('.mobile-nav').toggleClass('active');
+
+    });
+
+    $('nav ul li a.active').click(function() {
+        return false;
+    });
+
+    $('.music-control').click(function() {
+
+        if($(this).hasClass('paused')) {
+            $(this).removeClass('paused');
+            document.getElementById('music').play();
+        } else {
+            $(this).addClass('paused');
+            document.getElementById('music').pause();
+        }
 
     });
 
