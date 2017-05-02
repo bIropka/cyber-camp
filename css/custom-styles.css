@@ -1446,10 +1446,15 @@ footer[role='contentinfo'] .logo-footer span {
   width: 55px;
   height: 52px;
   background: #495563 url(../source/images/music-control.png) no-repeat left top;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 .online-manager button:hover {
   opacity: .7;
 }
 .online-manager button.paused {
-  background: #fff url(../source/images/music-control.png) no-repeat right top;
+  background: #495563 url(../source/images/music-control.png) no-repeat right top;
 }
