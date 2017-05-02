@@ -180,6 +180,50 @@ $(window).ready(function() {
 
     });
 
+    $('.callback').click(function() {
+        $('.window').fadeIn();
+    });
+
+    $('.window').click(function (event) {
+        $target = $(event.target);
+        if (!$target.closest($('.window-inner')).length) {
+            $('.window').fadeOut();
+        }
+        if ($target.hasClass('close-window')){
+            $('.window').fadeOut();
+        }
+    });
+
+    /*******************************************************************************************************************
+     *************** slick
+     ******************************************************************************************************************/
+
+    $('.slider').slick({
+        slidesToShow: 7,
+        appendArrows: '.slider-control',
+        prevArrow: '.slider-prev',
+        nextArrow: '.slider-next',
+        responsive: [
+            {
+                breakpoint: 1401,
+                settings: {
+                    slidesToShow: 5
+                }
+            },
+            {
+                breakpoint: 1080,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
 
     /*******************************************************************************************************************
      *********** countdown
@@ -202,5 +246,8 @@ $(window).ready(function() {
         clock.setFaceValue(24 * 60 * 60);
         clock.start();
     });
+
+
+
 
 });

@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300|Fira+Sans:300,400,600,700&subset=cyrillic');
 
 /***********************************************************************************************************************
+*********** slick
+***********************************************************************************************************************/
+@import "slick";
+
+/***********************************************************************************************************************
 *********** flipclock
 ***********************************************************************************************************************/
 
-@import url(flipclock);
+@import "flipclock";
 
 /***********************************************************************************************************************
 *********** mixes
@@ -195,7 +200,13 @@ fieldset {
   border: none;
 }
 
-
+h2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 27px;
+  color: #db3232;
+  margin: 0 0 20px;
+}
 
 input::-webkit-input-placeholder {color: #000;font-size: 14px;}
 input::-moz-placeholder {color: #000;font-size: 14px;}
@@ -825,7 +836,7 @@ footer[role='contentinfo'] {
       align-items: center;
       align-content: center;
       flex-wrap: wrap;
-      width: 280px;
+      width: 270px;
       height: 120px;
       background: #495563;
       position: absolute;
@@ -887,6 +898,7 @@ footer[role='contentinfo'] {
   justify-content: space-between;
   align-content: flex-start;
   text-align: center;
+  margin: 0 0 50px;
 
   li {
     display: block;
@@ -1014,19 +1026,149 @@ footer[role='contentinfo'] {
 }
 
 /***********************************************************************************************************************
+*********** partners
+***********************************************************************************************************************/
+
+.partners {
+
+  .slider-wrap {
+    display: block;
+    width: 100%;
+    position: relative;
+
+    @media(max-width: 1400px) {
+      width: ~"calc(100% - 160px)";
+      margin: 0 auto;
+    }
+
+    @media(max-width: 360px) {
+      width: ~"calc(100% - 100px)";
+    }
+
+  }
+
+  .slider-control {
+    display: block;
+    width: 43px;
+    height: 33px;
+    background: url(../source/images/slider-controls.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 59px;
+    z-index: 10;
+    cursor: pointer;
+    .smooth(.4s);
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &.slider-prev {
+      background-position: left top;
+      left: -80px;
+
+      &:active {
+        left: -85px;
+      }
+
+    }
+
+    &.slider-next {
+      background-position: right top;
+      right: -80px;
+
+      &:active {
+        right: -85px;
+      }
+
+    }
+
+    @media(max-width: 1400px) {
+      &.slider-prev {
+        left: -65px;
+
+        &:active {
+          left: -70px;
+        }
+
+      }
+
+      &.slider-next {
+        right: -65px;
+
+        &:active {
+          right: -70px;
+        }
+
+      }
+
+    }
+
+    @media(max-width: 360px) {
+      &.slider-prev {
+        left: -50px;
+
+        &:active {
+          left: -55px;
+        }
+
+      }
+
+      &.slider-next {
+        right: -50px;
+
+        &:active {
+          right: -55px;
+        }
+
+      }
+
+    }
+
+  }
+
+  .slide {
+    display: block;
+    text-align: center;
+
+    .image-wrap {
+      display: block;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #fff;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+    }
+
+    a {
+
+      font-weight: 600;
+      color: #fff;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+}
+
+/***********************************************************************************************************************
 *********** promo-block
 ***********************************************************************************************************************/
 
 .promo-block {
   padding: 40px 0 0;
-
-  h2 {
-    text-align: center;
-    font-weight: 600;
-    font-size: 27px;
-    color: #db3232;
-    margin: 0 0 20px;
-  }
 
   p {
     color: #fff;
@@ -1058,6 +1200,7 @@ footer[role='contentinfo'] {
       height: 100%;
       border-top: 7px solid #d43b3b;
       background: rgba(0, 0, 0, .57);
+      padding-bottom: 100px;
     }
 
   }
@@ -1075,7 +1218,6 @@ footer[role='contentinfo'] {
 
   .faq-list {
     display: block;
-    margin: 20px 0 140px;
     padding: 0 50px;
 
     .question {
@@ -1126,10 +1268,11 @@ footer[role='contentinfo'] {
     display: none;
   }
 
-  a {
+  .callback {
     display: inline-block;
     vertical-align: top;
     padding: 0 25px;
+    border: none;
     background: #d63b3b;
     height: 52px;
     line-height: 52px;
@@ -1152,7 +1295,7 @@ footer[role='contentinfo'] {
 
   }
 
-  button {
+  .music-control {
     display: inline-block;
     vertical-align: top;
     border: none;
@@ -1169,6 +1312,89 @@ footer[role='contentinfo'] {
       background: #495563 url(../source/images/music-control.png) no-repeat right top;
     }
 
+  }
+
+}
+
+/***********************************************************************************************************************
+*********** window
+***********************************************************************************************************************/
+
+.window {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  z-index: 1002;
+
+  .window-inner {
+    display: block;
+    width: 320px;
+    background: #fff;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 150px;
+    margin: auto;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .close-window {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    background: #d63b3b;
+    color: #fff;
+    .smooth(.4s);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+      background: #fff;
+      color: #d63b3b;
+    }
+
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+
+    input {
+      display: block;
+      width: 100%;
+      height: 40px;
+      padding: 0 15px;
+      border: 1px solid #000;
+
+      &:focus {
+        outline: none;
+      }
+
+    }
+
+  }
+
+  button {
+    margin: 0 auto;
   }
 
 }
