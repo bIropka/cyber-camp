@@ -232,7 +232,6 @@ $(window).ready(function() {
     var clock;
     var diff = (24 * 60 *60 * 2);// период для счетчика, в миллисекундах, установлено двое суток
 
-    // Instantiate a coutdown FlipClock
     clock = $('.countdown').FlipClock(diff, {
         language: 'ru',
         clockFace: 'DailyCounter',
@@ -241,13 +240,5 @@ $(window).ready(function() {
         }
     });
     clock.setCountdown(true);
-    clock.face.on('stop', function() {
-        // add 24 hours worth of seconds to the clock face
-        clock.setFaceValue(24 * 60 * 60);
-        clock.start();
-    });
-
-
-
 
 });
